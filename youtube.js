@@ -1,20 +1,24 @@
 //var logger = function() {console.log($(".comment-renderer-text-content").text());}
 
 //setInterval(logger, 5000);
+
+var $script = $("<script> function btnfnc(){alert('Hello');}</script>");
+
+$("html").append($script);
+
 var logger2 = function () {
   $('.comment-renderer-text-content').each(function()
   {
     if (censor($(this).text())){
       $(this).hide();
-      $(this).parent().append("<input class='censorship-block' type='button' value='This comment was flagged as offensive. Click to show.'/>");
+      $(this).parent().append("<input class='censorship-block' onClick='btnfnc()' type='button' value='This comment was flagged as offensive. Click to show.'/>");
       // $tmp.appendTo($(this).parent());
     }
   });
 }
 
-
 var censor = function(input){
-  var indx = input.search("fuck");
+  var indx = input.search("the");
   if (indx == -1){
     return false;
   }
@@ -25,8 +29,7 @@ var censor = function(input){
 
 
 
-
-logger2();
+setInterval(logger2, 5000);
 
 
 // chrome.runtime.onMessage.addListener(
