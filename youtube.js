@@ -1,22 +1,17 @@
 //var logger = function() {console.log($(".comment-renderer-text-content").text());}
 
 //setInterval(logger, 5000);
-
-var i = 0
-
 var logger2 = function () {
   $('.comment-renderer-text-content').each(function()
   {
-    console.log($(this).text());
-    console.log(i);
-    i += 1;
     if (censor($(this).text())){
-      $(this).parent().parent().parent().hide();
+      $(this).hide();
+      $(this).parent().append("<input class='censorship-block' type='button' value='This comment was flagged as offensive. Click to show.'/>");
+      // $tmp.appendTo($(this).parent());
     }
-  })
+  });
 }
 
-setInterval(logger2, 5000);
 
 var censor = function(input){
   var indx = input.search("fuck");
@@ -27,3 +22,19 @@ var censor = function(input){
     return true;
   }
 }
+
+
+
+
+logger2();
+
+
+// chrome.runtime.onMessage.addListener(
+//   function(request, sender, sendResponse) {
+//     if( request.message === "clicked_browser_action" ) {
+//       var firstHref = $("a[href^='http']").eq(0).attr("href");
+//
+//       console.log(firstHref);
+//     }
+//   }
+// );
