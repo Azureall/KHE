@@ -2,9 +2,9 @@
   "manifest_version": 2,
   "name": "Something Punny",
   "version": "0.1",
-  "content-scripts" : [
+  "content_scripts" : [
     {
-    "matches": ["http://youtube.com/*", "https://youtube.com/*"],
+    "matches": ["<all_urls>"],
     "js": ["jquery-3.1.1.min.js", "youtube.js"]
     }
   ]
