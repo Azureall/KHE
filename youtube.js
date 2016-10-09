@@ -71,7 +71,10 @@ var wordDatabase = [
   {word:"ass", rating:2},
   {word:"asshole", rating:4},
   {word:"sucks", rating:4},
-
+  {word:"nausea", rating:2},
+  {word:"<", rating:2},
+  {word:"IQ", rating:2},
+  {word:"example", rating:4},
 
   {word:"2-faced" , rating:2},
   {word:"2-faces" , rating:2},
