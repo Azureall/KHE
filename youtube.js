@@ -1,8 +1,5 @@
-//var logger = function() {console.log($(".comment-renderer-text-content").text());}
 
-//setInterval(logger, 5000);
-
-
+var threshold = .3;
 
 var $script = $("<script> function btnfnc(clicked_id){alert(clicked_id);}</script>");
 
@@ -16,9 +13,8 @@ var logger2 = function () {
         $(this).addClass("flagged-comment");
         $(this).hide();
         var temp = $(this).text();
-        $(this).parent().append("<input id='bitchesbecray' class='censorship-block' onClick='btnfnc(this.id)' type='button' value='This comment was flagged as offensive. Click to show.'/>");
-        $("#bitchesbecray").attr("id", temp);
-        // $tmp.appendTo($(this).parent());
+        $(this).parent().append("<input id='flagged-comment-1' class='censorship-block' onClick='btnfnc(this.id)' type='button' value='This comment was flagged as offensive. Click to show.'/>");
+        $("#flagged-comment-1").attr("id", temp);
       }
     }
   });
@@ -33,16 +29,9 @@ var censor = function(input){
 
   hRate = hRate/(strin.length);
 
-  if (hRate >= .3) {return true;}
+  if (hRate >= threshold) {return true;}
   return false;
 
-  // var indx = input.search("the");
-  // if (indx == -1){
-  //   return false;
-  // }
-  // else {
-  //   return true;
-  // }
 }
 
 var getRate = function(input){
